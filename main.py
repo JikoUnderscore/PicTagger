@@ -118,7 +118,7 @@ CURRENT_FILEPATH: str = ""
 def main():
     global CURRENT_IMAGE
     if len(sys.argv) < 2:
-        print("🛑 Usage: python script.py <directory> [start index]")
+        print("🛑 Usage: python main.py <directory> [start index]")
         return 1
     jpg_files = list_files_in_directory(sys.argv[1])
 
@@ -224,7 +224,7 @@ def button_do_stuff( listbox_tags: tk.Listbox, button_text: str):
 
     command.extend(["-charset", "utf8", "-charset", "iptc=utf8", "-charset", "exif=utf8", "-charset", "filename=utf8" , "-codedcharacterset=utf8", "-@", "args.txt"])
     command.append(CURRENT_FILEPATH.strip()) # 
-    # >exiftool -P -overwrite_original -charset utf8 -charset iptc=utf8 -charset exif=utf8 -charset filename=utf8 -codedcharacterset=utf8 -@ args.txt C:\\Users\\Underscore\\OneDrive\\Pictures\\cloud\\familija\\zhivotni\\007.jpg
+    # >exiftool -P -overwrite_original -charset utf8 -charset iptc=utf8 -charset exif=utf8 -charset filename=utf8 -codedcharacterset=utf8 -@ args.txt C:\\path\\to\\file\\007.jpg
     print(f"running commad {command=}")
     result = subprocess.run(command, capture_output=True, text=True)  # , encoding="utf-8"
     print("==================")
